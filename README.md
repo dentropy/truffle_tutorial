@@ -22,7 +22,7 @@ npm install -g ganache-cli
 npm install -g express
 ```
 
-<span style="font-size:larger;">Windows instructions</span><br>
+<span style="font-size:larger;">Linux instructions</span><br>
 * [Use your favorite package manager](https://nodejs.org/en/download/package-manager/)
 ```bash
 #This is Ubuntu for example
