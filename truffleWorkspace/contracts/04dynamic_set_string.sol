@@ -2,8 +2,8 @@ pragma solidity ^0.4.16;
 
 contract set_string {
     address public setter;
-    string public public_string;
+    mapping (address => string) public string_data;
     function set_string(string tmpString) public {
-        public_string = tmpString;
+        string_data[msg.sender] = tmpString;
     }  
 }
