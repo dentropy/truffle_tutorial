@@ -14,7 +14,7 @@ module.exports = function (deployer) {
   deployer.deploy(ConvertLib);
   deployer.link(ConvertLib, MetaCoin);
   deployer.deploy(set_string, "First Example");
-  deployer.deploy(set_int, 42);
+  deployer.deploy(set_int);
   deployer.deploy(permissions_set_string);
   deployer.deploy(permissions_set_int);
   deployer.deploy(dynamic_set_string, "First Dynamic String");
