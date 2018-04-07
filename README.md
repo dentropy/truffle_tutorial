@@ -1,7 +1,7 @@
 # truffle_tutorial
 A tutorial for the truffle smart contract framework
 
-<span style="font-size:larger;">First we need to install nodejs and some node packages</span><br>
+<span style="font-size:larger;">First we need to install nodejs and some node packages</span><br><br><br>
 <span style="font-size:larger;">Mac instructions</span>
 * Open terminal
 ```bash
@@ -12,7 +12,7 @@ sudo npm install -g truffle
 sudo npm install -g ganache-cli
 sudo npm install -g express
 ```
-
+<br>
 <span style="font-size:larger;">Windows instructions</span><br>
 [Download and Install nodejs](https://nodejs.org/en/download/)
 * Open power shell as administrator
@@ -21,6 +21,7 @@ npm install -g truffle
 npm install -g ganache-cli
 npm install -g express
 ```
+<br>
 
 <span style="font-size:larger;">Linux instructions</span><br>
 * [Use your favorite package manager](https://nodejs.org/en/download/package-manager/)
@@ -33,3 +34,21 @@ sudo npm install -g truffle
 sudo npm install -g ganache-cli
 sudo npm install -g express
 ```
+
+* Steps to deploy smart contracts
+	1. Launch Ganache from terminal or Powershell
+		1. ```ganache-cli -p 8545```
+    2. git clone this project
+    	1. ```git clone https://github.com/mullinat/truffle_tutorial.git```
+    3. cd into the truffleWorkspace directory
+    	1. ```cd truffle_tutorial```
+    	2. ```cd truffleWorkspace```
+    4. Now compile the example smart contracts
+        1. ```truffle compile```
+    5. Now deploy  the example smart contracts
+    	1. ```truffle migrate``` 
+
+
+
+
+				
