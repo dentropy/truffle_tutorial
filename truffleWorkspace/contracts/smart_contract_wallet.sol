@@ -12,7 +12,12 @@ contract smart_contract_wallet {
     mapping (address => uint256) public balances;
     uint32 next_transfers_in_num = 1;
     uint32 next_transfers_out_num = 1;
-
+    address public creator;
+    function smart_contract_wallet() public {
+        if (creator == address(0)){
+            creator = msg.sender;
+        }
+    }
     function update_balance() public payable{
         transfers_in[next_transfers_in_num].from = msg.sender;
         transfers_in[next_transfers_in_num].amount = msg.value;

@@ -1,9 +1,9 @@
 pragma solidity ^0.4.16;
 
-contract set_string {
+contract permission_set_string {
     address public owner;
     string public public_string;
-    function set_string() public {
+    function permission_set_string() public {
         if (owner == address(0)){
             owner = msg.sender;
         }
