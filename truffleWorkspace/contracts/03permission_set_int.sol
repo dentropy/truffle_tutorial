@@ -2,7 +2,20 @@ pragma solidity ^0.4.16;
 
 contract set_int {
     int256 public public_int;
-    function set_int(int256 tmpNum) public {
-        public_int = tmpNum;
-    }  
+    address public owner;
+    function set_int() public {
+        if(owner == address(0)){
+            owner = msg.sender;
+        }
+    }
+    function set_int_data(int256 tmpInt) public {
+        if(msg.sender == owner){
+            public_int = tmpInt;
+        }
+    }
+    function change_owner(address _new_owner) public {
+        if(msg.sender == owner){
+            owner = _new_owner;
+        }
+    }    
 }
