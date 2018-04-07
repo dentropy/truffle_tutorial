@@ -38,7 +38,7 @@ sudo npm install -g express
 * Steps to deploy smart contracts
 	1. Launch Ganache from terminal or Powershell
 		1. ```ganache-cli -p 8545```
-    2. git clone this project
+    2. <b>Open new terminal</b> and git clone this project
     	1. ```git clone https://github.com/mullinat/truffle_tutorial.git```
     3. cd into the truffleWorkspace directory
     	1. ```cd truffle_tutorial```
