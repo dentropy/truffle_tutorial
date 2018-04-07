@@ -14,10 +14,10 @@ module.exports = function (deployer) {
   deployer.deploy(ConvertLib);
   deployer.link(ConvertLib, MetaCoin);
   deployer.deploy(set_string, "First Example");
-  deployer.deploy(set_int);
+  deployer.deploy(set_int, 42);
   deployer.deploy(permissions_set_string);
   deployer.deploy(permissions_set_int);
-  deployer.deploy(MetaCodynamic_set_stringin);
+  deployer.deploy(dynamic_set_string, "First Dynamic String");
   deployer.deploy(dynamic_set_int);
   deployer.deploy(smart_contract_wallet);
 };
