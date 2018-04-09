@@ -13,4 +13,4 @@ git clone https://github.com/c9/core.git c9sdk
 cd c9sdk
 echo "Installing cloud9 dependacies"
 ./scripts/install-sdk.sh
-node ./server.js -p 3333 -a : -w ~
+node ./c9sdk/server.js -l 0.0.0.0 -p 8081 -a : -w ~
