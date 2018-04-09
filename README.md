@@ -3,7 +3,7 @@ A tutorial for setting up a development environment <br>
 and using truffle the smart contract framework
 
 <span style="font-size:larger;">First we need to install nodejs and some node packages</span><br><br><br>
-<span style="font-size:larger;">Mac instructions</span>
+<span style="font-size:larger;"><b>Mac instructions</b></span>
 * Open terminal
 ```bash
 #First install the node version manager nvm
@@ -14,7 +14,7 @@ sudo npm install -g ganache-cli
 sudo npm install -g express
 ```
 <br>
-<span style="font-size:larger;">Windows instructions</span><br>
+<span style="font-size:larger;"><b>Windows instructions</b></span><br>
 [Download and Install nodejs](https://nodejs.org/en/download/)
 * Open power shell as administrator
 ```bash
@@ -23,8 +23,8 @@ npm install -g ganache-cli
 npm install -g express
 ```
 <br>
-
-<span style="font-size:larger;">Linux instructions</span><br>
+<br>
+<span style="font-size:larger;"><b>Linux instructions</b></span><br>
 * [Use your favorite package manager](https://nodejs.org/en/download/package-manager/)
 ```bash
 #This is Ubuntu for example
