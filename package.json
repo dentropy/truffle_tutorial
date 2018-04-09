@@ -1,0 +1,29 @@
+{
+  "name": "truffle_tutorial",
+  "version": "0.0.1",
+  "description": "Deploy front end apps with that communicate with the Blockchain using Docker",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.3",
+    "ganache-cli": "^6.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "./server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mullinat/truffle_tutorial.git"
+  },
+  "keywords": [
+    "truffle",
+    "node"
+  ],
+  "author": "Paul Mullins",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mullinat/truffle_tutorial/issues"
+  },
+  "homepage": "https://github.com/mullinat/truffle_tutorial#readme"
+}

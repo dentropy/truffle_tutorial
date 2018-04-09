@@ -55,7 +55,7 @@ su cloud9
 node -v
 ifconfig
 #Get the Virtual Mahcines's ip address
-node c9sdk/server.js  
+node ./c9sdk/server.js -l 0.0.0.0 -p 8081 -a : -w ~  
 ```
 
 * Steps to deploy smart contracts
