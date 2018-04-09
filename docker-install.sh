@@ -1,5 +1,6 @@
 #!/bin/bash
-apt install nano
+apt install -y git
+apt install -y nano
 apt install -y wget
 apt install -y net-tools
 apt install -y tmux
