@@ -1,7 +1,12 @@
 # truffle_tutorial
 A tutorial for the truffle smart contract framework
 
-<span style="font-size:larger;">First we need to install nodejs and some node packages</span><br><br><br>
+<span style="font-size:larger;">First we need to install nodejs and some node packages</span><br><br>
+
+<span style="font-size:larger;">First we need to install Docker</span><br><br>
+* [Instructions for Windows](https://docs.docker.com/docker-for-windows/)<br>
+* [Instructions for MAC](https://docs.docker.com/docker-for-mac/)<br>
+* [Instructions for Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)<br>
 <span style="font-size:larger;">Mac instructions</span>
 * Open terminal
 ```bash
