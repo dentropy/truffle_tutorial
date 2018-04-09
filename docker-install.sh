@@ -21,9 +21,9 @@ echo "Installing sl"
 apt install -y sl
 echo "Installing cmatrix"
 apt install -y cmatrix
-#Installing python makes people configure their keyboards, fix this later
-#echo "Installing python"
-#apt install -y python
+Installing python makes people configure their keyboards, fix this later
+echo "Installing python"
+apt install -y python
 echo "Installing htop, basically task manager for ubuntu"
 apt install -y htop
 echo "Installing build-essensial"
