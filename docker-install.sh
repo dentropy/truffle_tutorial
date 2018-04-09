@@ -24,6 +24,8 @@ apt install -y cmatrix
 Installing python makes people configure their keyboards, fix this later
 echo "Installing python"
 apt install -y python
+echo "Installing pip"
+apt install -y pip
 echo "Installing htop, basically task manager for ubuntu"
 apt install -y htop
 echo "Installing build-essensial"

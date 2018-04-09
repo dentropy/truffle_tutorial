@@ -1,1 +1,1 @@
-docker run -ti -p 8545:8545 -p 3344:3344 -p 3042:3042 ubuntu
+docker run -ti -p 8545:8545 -p 8081:8081 -p 3042:3042 ubuntu
