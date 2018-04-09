@@ -36,8 +36,7 @@ sudo npm install -g truffle
 sudo npm install -g ganache-cli
 sudo npm install -g express
 ```
-
-* Steps to deploy smart contracts
+<span style="font-size:larger;"><b>Steps to deploy smart contracts</b></span><br>
 	1. Open your terminal and run these commands
 		1. ```bash
 		   npm install -g ganache-cli
