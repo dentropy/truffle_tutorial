@@ -42,7 +42,7 @@ apt upgrade
 apt install -y wget
 cd 
 wget https://raw.githubusercontent.com/mullinat/truffle_tutorial/master/docker-install.sh
-docker-install.sh
+bash docker-install.sh
 adduser cloud9
 #ADD YOUR PASSWORD
 #FOR FOLLOWING FIELDS JUST PRESS ENTER
