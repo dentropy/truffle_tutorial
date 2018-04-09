@@ -16,6 +16,7 @@ sudo npm install -g express
 <span style="font-size:larger;"><b>Windows instructions</b></span><br>
 [Download and Install nodejs](https://nodejs.org/en/download/)
 * Open power shell as administrator
+
 ```bash
 npm install -g truffle
 npm install -g ganache-cli
