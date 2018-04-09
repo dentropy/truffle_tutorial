@@ -37,7 +37,7 @@ sudo npm install -g express
 ```
 
 * Steps to deploy smart contracts
-	1. Launch Ganache from Cloud9 terminal
+	1. Open your terminal and run these commands
 		1. ```bash
 		   npm install -g ganache-cli
            npm install -g truffle
