@@ -1,8 +1,7 @@
 # truffle_tutorial
-A tutorial for setting up a development environment <br>
-and using truffle the smart contract framework
+A tutorial for setting up a development environment and using truffle the smart contract framework
 
-<span style="font-size:larger;">First we need to install nodejs and some node packages</span><br><br><br>
+<span style="font-size:larger;"><b>First we need to install nodejs and some node packages</b></span><br><br><br>
 <span style="font-size:larger;"><b>Mac instructions</b></span>
 * Open terminal
 ```bash
