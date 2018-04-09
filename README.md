@@ -14,7 +14,7 @@ sudo npm install -g express
 ```
 <br>
 <span style="font-size:larger;"><b>Windows instructions</b></span><br>
-[Download and Install nodejs](https://nodejs.org/en/download/)
+* [Download and Install nodejs](https://nodejs.org/en/download/)
 * Open power shell as administrator
 
 ```bash
