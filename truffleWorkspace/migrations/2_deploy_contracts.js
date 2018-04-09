@@ -9,7 +9,7 @@ var permissions_set_int = artifacts.require("./permission_set_int.sol");
 var dynamic_set_string = artifacts.require("./dynamic_set_string.sol");
 var dynamic_set_int = artifacts.require("./dynamic_set_int.sol");
 var smart_contract_wallet = artifacts.require("./smart_contract_wallet.sol");
-
+var MintableToken = artifacts.require("./MintableToken.sol");
 module.exports = function (deployer) {
   deployer.deploy(ConvertLib);
   deployer.link(ConvertLib, MetaCoin);
@@ -20,4 +20,5 @@ module.exports = function (deployer) {
   deployer.deploy(dynamic_set_string, "First Dynamic String");
   deployer.deploy(dynamic_set_int);
   deployer.deploy(smart_contract_wallet);
+  deployer.deploy(MintableToken, 12000, "PCOIN", 1, "PC");
 };
