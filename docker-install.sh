@@ -21,8 +21,9 @@ echo "Installing sl"
 apt install -y sl
 echo "Installing cmatrix"
 apt install -y cmatrix
-echo "Installing python"
-apt install -y python
+#Installing python makes people configure their keyboards, fix this later
+#echo "Installing python"
+#apt install -y python
 echo "Installing htop, basically task manager for ubuntu"
 apt install -y htop
 echo "Installing build-essensial"
@@ -39,6 +40,7 @@ npm install -g ganache-cli
 echo "Installing and running cloud 9"
 git clone https://github.com/c9/core.git c9sdk
 cd c9sdk
+echo "Installing cloud9 dependacies"
 ./scripts/install-sdk.sh
 node ./server.js -p 3333 -a : -w ~
 
