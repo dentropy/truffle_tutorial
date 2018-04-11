@@ -1,8 +1,9 @@
 var SmartContract = { name: "", abi: "", address: "", call: "" }
 var SmartContracts = {};
-//var GenerateInvoiceABI;
-//var GenerateInvoiceAddress;
-//var GenerateInvoice;
+
+var help = " --##--> Use the View Page Source to see the command options for interacting with the smart contract ";
+var Help = help;
+
 function GetSmartContract(_location, _name) {
     $.getJSON(_location, function (result) {
         //GenerateInvoiceABI = result;

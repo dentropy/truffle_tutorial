@@ -8,6 +8,8 @@ app.get('/', function (req, res) {
     fs.readFile('./src/index.html', 'utf8', (err, data) => {
         if (err) throw err;
         res.send(data);
+
+        console.log("\n--> Success, you've Requested a page from server.js !!! ");
     });
 });
 //Host the app
