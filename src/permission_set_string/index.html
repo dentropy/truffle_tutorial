@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <script src="/src/ImportSmartContract.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>Hello World!!!</h1>
+    <p>Maybe that writing was too big.  No matter, view source on this file to see some of the commands you can run in the Browser Console to interact with the Truffle Tutorial Smart contract(s)</p>
+    <script>
+
+        /*
+
+        Run the following commands in the Browser Console to interact with the smart contract(s)
+
+        SmartContract                                                   <--- to show the JSON contract structure
+
+        GetSmartContract("/abi/set_int.json", "set_int");               <--- To set the current/active smart contract
+
+        SmartContracts["set_int"].address;                              <--- To show the data eleemnts of the contract
+        SmartContracts["set_int"].abi;
+
+        */
+
+
+        /*
+
+        Run the following commands to interact with the set_int smart contract (in folder './truffleWorkspace/contracts')
+
+        SmartContracts["set_int"].call.public_int(function (err, result){console.log(result)});         <---  RETURNS an array where c = 'the value in the contract'
+
+        SmartContracts["set_int"].call.set_int_data(12,function (){console.log("IT SHOULD WORK")});
+
+
+        */
+
+    </script>
+</body>
+
+</html>
