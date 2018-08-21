@@ -1,11 +1,11 @@
-pragma solidity ^0.4.16;
+pragma solidity ^0.4.24;
 
 contract dynamic_set_int {
     int256 public public_int;
     address inital_owner;
     mapping (address => int256) public int_data;
     mapping (address => bool) public permissions;
-    function dynamic_set_int() public {
+    constructor() public {
         if(inital_owner == address(0)){
             inital_owner = msg.sender;
             permissions[msg.sender] = true;

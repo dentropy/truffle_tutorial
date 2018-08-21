@@ -1,8 +1,8 @@
-pragma solidity ^0.4.16;
+pragma solidity ^0.4.24;
 
 contract set_string {
     string public public_string;
-    function set_string(string tmpString) public {
+    constructor(string tmpString) public {
         public_string = tmpString;
     } 
     function set_string_data(string tmpString) public {

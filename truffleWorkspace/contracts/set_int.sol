@@ -1,10 +1,10 @@
-pragma solidity ^0.4.16;
+pragma solidity ^0.4.24;
 
 contract set_int {
     int256 public public_int;
     address owner;
 
-    function set_int() public {
+    constructor() public {
         owner = msg.sender;
         public_int = 42;
     }

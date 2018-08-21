@@ -1,4 +1,4 @@
-pragma solidity ^0.4.16;
+pragma solidity ^0.4.24;
 
 contract smart_contract_wallet {
 
@@ -13,7 +13,7 @@ contract smart_contract_wallet {
     uint32 next_transfers_in_num = 1;
     uint32 next_transfers_out_num = 1;
     address public creator;
-    function smart_contract_wallet() public {
+    constructor() public {
         if (creator == address(0)){
             creator = msg.sender;
         }

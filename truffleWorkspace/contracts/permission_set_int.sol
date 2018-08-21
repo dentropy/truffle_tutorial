@@ -1,9 +1,9 @@
-pragma solidity ^0.4.16;
+pragma solidity ^0.4.24;
 
 contract permission_set_int {
     int256 public public_int;
     address public owner;
-    function permission_set_int() public {
+    constructor () public {
         if(owner == address(0)){
             owner = msg.sender;
         }
