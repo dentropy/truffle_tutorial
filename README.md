@@ -16,7 +16,7 @@ sudo npm install -g express
 ```
 <br>
 <span style="font-size:larger;">Using <b>Windows 10</b> - follow these instructions</span><br>
-* [Download and Install nodejs](https://nodejs.org/en/download/)
+* [Download and Install the latest verion of nodejs](https://nodejs.org/en/download/)
 * Open power shell as administrator
 
 ```bash
@@ -31,7 +31,7 @@ npm install -g express
 
 ```bash
 #This is Ubuntu for example
-curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 #Install the npm modules
