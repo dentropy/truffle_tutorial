@@ -3,38 +3,51 @@
 <head>
     <script src="/src/javascript/ImportSmartContract.js"></script>
     <script src="/src/javascript/jquery.min.js"></script>
+    <script src="/src/javascript/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/src/css/bootstrap.min.css">
 </head>
 
 <body>
-    <h1>Hello World!!!</h1>
-    <p>Maybe that writing was too big.  No matter, view source on this file to see some of the commands you can run in the Browser Console to interact with the Truffle Tutorial Smart contract(s)</p>
+    <div align="center">
+        <h1>set_int smart contract user interface</h1>
+        <h1 id="NumberFromBlockchain">The string on the blockchain is ###</h1>
+        <p>Input a string of text below and click update</p>
+        <div class="input-group input-group-lg" style="width:60%;">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-lg">Input String</span>
+            </div>
+            <input id="NewStringForBlockchain" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+            <button class="btn btn-outline-secondary" type="button" onclick="UpdateBlockchianWithUpdatedNumber()">Update</button>
+        </div>
+    </div>
     <script>
-        GetSmartContract("/abi/set_string.json", "set_string"); 
-        /*
+        window.onload = function () {
+            GetSmartContract("/abi/set_string.json", "set_string");
+            CheckBlockchainForUpdatedNumber()
+        }
 
-        Run the following commands in the Browser Console to interact with the smart contract(s)
+        function CheckBlockchainForUpdatedNumber() {
+            SmartContracts["set_string"].call.public_string(function (err, result) {
+                //console.log(result);
+                document.getElementById("NumberFromBlockchain").innerHTML = ("The number of blockchain is " +
+                    result);
+            });
+        }
 
-        SmartContract                                                   <--- to show the JSON contract structure
+        function UpdateBlockchianWithUpdatedNumber() {
+            var tmpNum = $('#NewStringForBlockchain').val();
+            console.log("tmpNum = " + tmpNum);
+            SmartContracts["set_string"].call.set_string_data(tmpNum, function () {
+                console.log("IT SHOULD WORK")
+            });
+            CheckBlockchainForUpdatedNumber();
+            $('#NewStringForBlockchain').val(0);
+        }
 
-        GetSmartContract("/abi/set_int.json", "set_int");               <--- To set the current/active smart contract
-
-        SmartContracts["set_int"].address;                              <--- To show the data eleemnts of the contract
-        SmartContracts["set_int"].abi;
-
-        */
-
-
-        /*
-
-        Run the following commands to interact with the set_int smart contract (in folder './truffleWorkspace/contracts')
-
-        SmartContracts["set_int"].call.public_int(function (err, result){console.log(result)});         <---  RETURNS an array where c = 'the value in the contract'
-
-        SmartContracts["set_int"].call.set_int_data(12,function (){console.log("IT SHOULD WORK")});
-
-
-        */
-
+        window.setInterval(function () {
+            //console.log("LOOP");
+            CheckBlockchainForUpdatedNumber();
+        }, 1000);
     </script>
 </body>
 
