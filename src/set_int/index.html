@@ -3,13 +3,26 @@
 <head>
     <script src="/src/javascript/ImportSmartContract.js"></script>
     <script src="/src/javascript/jquery.min.js"></script>
+    <script src="/src/javascript/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/src/css/bootstrap.min.css">
 </head>
 
 <body>
-    <h1>Hello World!!!</h1>
-    <p>Maybe that writing was too big.  No matter, view source on this file to see some of the commands you can run in the Browser Console to interact with the Truffle Tutorial Smart contract(s)</p>
+    <div align="center">
+        <h1>Hello World!!!</h1>
+        <p>Maybe that writing was too big. No matter, view source on this file to see some of the commands you can run in the
+            Browser Console to interact with the Truffle Tutorial Smart contract(s)</p>
+        <h1 id="NumberFromBlockchain">###</h1>
+        <div class="input-group input-group-lg" style="width:40%;">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-lg">Input Number</span>
+            </div>
+            <input id="NewNumberForBlockchain" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+            <button class="btn btn-outline-secondary" type="button" onclick="UpdateBlockchianWithUpdatedNumber()">Update</button>
+        </div>
+    </div>
     <script>
-        GetSmartContract("/abi/set_int.json", "set_int"); 
+        GetSmartContract("/abi/set_int.json", "set_int");
         /*
 
         Run the following commands in the Browser Console to interact with the smart contract(s)
@@ -28,13 +41,32 @@
 
         Run the following commands to interact with the set_int smart contract (in folder './truffleWorkspace/contracts')
 
-        SmartContracts["set_int"].call.public_int(function (err, result){console.log(result)});         <---  RETURNS an array where c = 'the value in the contract'
+        SmartContracts["set_int"].call.public_int(function (err, result){console.log(result.c)});         <---  RETURNS an array where c = 'the value in the contract'
 
         SmartContracts["set_int"].call.set_int_data(12,function (){console.log("IT SHOULD WORK")});
-
-
         */
+        function CheckBlockchainForUpdatedNumber() {
+            SmartContracts["set_int"].call.public_int(function (err, result) {
+                console.log(result.c[0]);
+                document.getElementById("NumberFromBlockchain").innerHTML = (result.c[0]);
+            });
+        }
 
+        function UpdateBlockchianWithUpdatedNumber() {
+            var tmpNum = parseInt($('#NewNumberForBlockchain').val());
+            console.log("tmpNum = " + tmpNum);
+            SmartContracts["set_int"].call.set_int_data(tmpNum, function () {
+                console.log("IT SHOULD WORK")
+            });
+            CheckBlockchainForUpdatedNumber();
+        }
+        window.onload = function () {
+            CheckBlockchainForUpdatedNumber()
+        }
+        window.setInterval(function () {
+            console.log("LOOP");
+            CheckBlockchainForUpdatedNumber();
+        }, 1000);
     </script>
 </body>
 
