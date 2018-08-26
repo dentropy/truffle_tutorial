@@ -12,7 +12,6 @@ brew install nodejs
 #The following commands may need "sudo" in front
 sudo npm install -g truffle
 sudo npm install -g ganache-cli
-sudo npm install -g express
 ```
 <br>
 <span style="font-size:larger;">Using <b>Windows 10</b> - follow these instructions</span><br>
@@ -22,7 +21,6 @@ sudo npm install -g express
 ```bash
 npm install -g truffle
 npm install -g ganache-cli
-npm install -g express
 ```
 <br>
 
