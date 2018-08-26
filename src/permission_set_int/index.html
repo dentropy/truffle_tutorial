@@ -3,42 +3,64 @@
 <head>
     <script src="/src/javascript/ImportSmartContract.js"></script>
     <script src="/src/javascript/jquery.min.js"></script>
+    <script src="/src/javascript/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/src/css/bootstrap.min.css">
 </head>
 
 <body>
-    <h1>Hello World!!!</h1>
-    <p>Maybe that writing was too big.  No matter, view source on this file to see some of the commands you can run in the Browser Console to interact with the Truffle Tutorial Smart contract(s)</p>
+    <h1>permission_set_int</h1>
+    <p id="ContractOwner">################### is the owner of this smart contract</p>
+    <h1 id="NumberFromBlockchain">The number of blockchain is ###</h1>
+    <div class="input-group input-group-lg" style="width:40%;">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-lg">Input Number</span>
+        </div>
+        <input id="NewNumberForBlockchain" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+        <button class="btn btn-outline-secondary" type="button" onclick="UpdateBlockchianWithUpdatedNumber()">Update</button>
+    </div>
+    <div class="input-group input-group-lg" style="width:40%;">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-lg">Input Address</span>
+        </div>
+        <input id="null" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+        <button class="btn btn-outline-secondary" type="button" onclick="console.log('test')">Update</button>
+    </div>
+
     <script>
-        GetSmartContract("/abi/permission_set_int.json", "permission_set_int"); 
-        /*
+        window.onload = function () {
+            GetSmartContract("/abi/permission_set_int.json", "permission_set_int");
+        }
 
-        Run the following commands in the Browser Console to interact with the smart contract(s)
+        function GetSmartContractOwner() {
+            SmartContracts["permission_set_int"].call.owner(function (err, result) {
+                document.getElementById("ContractOwner").innerHTML = (result +
+                    " is the owner of this smart contract");
+            })
+        }
 
-        SmartContract                                                   <--- to show the JSON contract structure
+        function CheckBlockchainForUpdatedNumber() {
+            SmartContracts["permission_set_int"].call.public_int(function (err, result) {
+                console.log(result.c[0]);
+                document.getElementById("NumberFromBlockchain").innerHTML = ("The number of blockchain is " +
+                    result.c[0]);
+            });
+        }
 
-        GetSmartContract("/permission_set_int/set_int.json", "permission_set_int");               <--- To set the current/active smart contract
+        function UpdateBlockchianWithUpdatedNumber() {
+            var tmpNum = parseInt($('#NewNumberForBlockchain').val());
+            console.log("tmpNum = " + tmpNum);
+            SmartContracts["permission_set_int"].call.set_int_data(tmpNum, function () {
+                console.log("IT SHOULD WORK")
+            });
+            CheckBlockchainForUpdatedNumber();
+            $('#NewNumberForBlockchain').val(0);
+        }
 
-        SmartContracts["permission_set_int"].address;                              <--- To show the data eleemnts of the contract
-        SmartContracts["permission_set_int"].abi;
-
-        */
-
-
-        /*
-
-        Run the following commands to interact with the set_int smart contract (in folder './truffleWorkspace/contracts')
-
-        SmartContracts["permission_set_int"].call.public_int(function (err, result){console.log(result)});         <---  RETURNS an array where c = 'the value in the contract'
-
-        SmartContracts["permission_set_int"].call.set_int_data(12,function (err, result){console.log(result);});
-
-
-    var MyContract = new web3.eth.contract(SmartContracts["permission_set_int"].abi, SmartContracts["permission_set_int"].address);
-    MyContract.methods.set_int_data(13).call()
-    .then(console.log);
-        */
-        SmartContracts["permission_set_int"].call.set_int_data(44, function(err, result){console.log(result);})
-        SmartContracts["permission_set_int"].call(14).then(console.log);
+        window.setInterval(function () {
+            GetSmartContractOwner();
+            CheckBlockchainForUpdatedNumber();
+        }, 1000);
+        //SmartContracts["permission_set_int"].call(14).then(console.log);
     </script>
 </body>
 
