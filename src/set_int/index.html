@@ -9,10 +9,9 @@
 
 <body>
     <div align="center">
-        <h1>Hello World!!!</h1>
-        <p>Maybe that writing was too big. No matter, view source on this file to see some of the commands you can run in the
-            Browser Console to interact with the Truffle Tutorial Smart contract(s)</p>
-        <h1 id="NumberFromBlockchain">###</h1>
+        <h1>set_int smart contract user interface</h1>
+        <h1 id="NumberFromBlockchain">The number of blockchain is ###</h1>
+        <p>Input a number below and click update</p>
         <div class="input-group input-group-lg" style="width:40%;">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-lg">Input Number</span>
@@ -22,33 +21,16 @@
         </div>
     </div>
     <script>
-        GetSmartContract("/abi/set_int.json", "set_int");
-        /*
+        window.onload = function () {
+            GetSmartContract("/abi/set_int.json", "set_int");
+            CheckBlockchainForUpdatedNumber()
+        }
 
-        Run the following commands in the Browser Console to interact with the smart contract(s)
-
-        SmartContract                                                   <--- to show the JSON contract structure
-
-        GetSmartContract("/abi/set_int.json", "set_int");               <--- To set the current/active smart contract
-
-        SmartContracts["set_int"].address;                              <--- To show the data eleemnts of the contract
-        SmartContracts["set_int"].abi;
-
-        */
-
-
-        /*
-
-        Run the following commands to interact with the set_int smart contract (in folder './truffleWorkspace/contracts')
-
-        SmartContracts["set_int"].call.public_int(function (err, result){console.log(result.c)});         <---  RETURNS an array where c = 'the value in the contract'
-
-        SmartContracts["set_int"].call.set_int_data(12,function (){console.log("IT SHOULD WORK")});
-        */
         function CheckBlockchainForUpdatedNumber() {
             SmartContracts["set_int"].call.public_int(function (err, result) {
                 console.log(result.c[0]);
-                document.getElementById("NumberFromBlockchain").innerHTML = (result.c[0]);
+                document.getElementById("NumberFromBlockchain").innerHTML = ("The number of blockchain is " +
+                    result.c[0]);
             });
         }
 
@@ -59,10 +41,9 @@
                 console.log("IT SHOULD WORK")
             });
             CheckBlockchainForUpdatedNumber();
+            $('#NewNumberForBlockchain').val(0);
         }
-        window.onload = function () {
-            CheckBlockchainForUpdatedNumber()
-        }
+
         window.setInterval(function () {
             console.log("LOOP");
             CheckBlockchainForUpdatedNumber();
