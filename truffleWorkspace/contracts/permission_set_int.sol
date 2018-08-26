@@ -9,7 +9,7 @@ contract permission_set_int {
         }
         public_int = 420;
     }
-    function set_int_data(int256 tmpInt) public returns(bool) {
+    function set_int_data(int256 tmpInt) public view returns(bool) {
         if(msg.sender == owner){
             public_int = tmpInt;
             return true;
