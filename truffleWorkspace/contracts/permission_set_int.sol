@@ -16,7 +16,7 @@ contract permission_set_int {
         }
         return false;
     }
-    function change_owner(address _new_owner) public returns(bool) {
+    function change_owner(address _new_owner) public view returns(bool) {
         if(msg.sender == owner){
             owner = _new_owner;
             return true;
