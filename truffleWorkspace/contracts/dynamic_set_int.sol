@@ -12,8 +12,9 @@ contract dynamic_set_int {
         }
     }
 
-    function add_address(address _address) {
-
+    function add_address(address _address) public {
+        assert(msg.sender == sudo_owner);
+        permissions[_address] = true;
     }
 
     function set_int_data(int256 _data) public {
