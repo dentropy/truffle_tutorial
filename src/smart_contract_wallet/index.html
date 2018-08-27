@@ -3,10 +3,47 @@
 <head>
     <script src="/src/javascript/ImportSmartContract.js"></script>
     <script src="/src/javascript/jquery.min.js"></script>
+    <script src="/src/javascript/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/src/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>Hello World!!!</h1>
-    <p>Maybe that writing was too big.  No matter, view source on this file to see some of the commands you can run in the Browser Console to interact with the Truffle Tutorial Smart contract(s)</p>
+    <h1>Check Address Balance</h1>
+    <div class="input-group input-group-lg" style="width:40%;">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-lg">Input Number</span>
+        </div>
+        <input id="NewNumberForBlockchain" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+        <button class="btn btn-outline-secondary" type="button" onclick="UpdateBlockchianWithUpdatedNumber()">Update</button>
+    </div>
+    <hr>
+    <h1>Send funds to smart contract</h1>
+    <div class="input-group input-group-lg" style="width:40%;">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-lg">Input Number</span>
+        </div>
+        <input id="NewNumberForBlockchain" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+        <button class="btn btn-outline-secondary" type="button" onclick="UpdateBlockchianWithUpdatedNumber()">Update</button>
+    </div>
+    <hr>
+    <h1>Check Incoming Transactions</h1>
+    <div class="input-group input-group-lg" style="width:40%;">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-lg">Input Number</span>
+        </div>
+        <input id="NewNumberForBlockchain" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+        <button class="btn btn-outline-secondary" type="button" onclick="UpdateBlockchianWithUpdatedNumber()">Update</button>
+    </div>
+    <hr>
+    <h1>Check Outgoing Transactions</h1>
+    <div class="input-group input-group-lg" style="width:40%;">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-lg">Input Number</span>
+        </div>
+        <input id="NewNumberForBlockchain" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+        <button class="btn btn-outline-secondary" type="button" onclick="UpdateBlockchianWithUpdatedNumber()">Update</button>
+    </div>
+    <hr>
+    <h1>Web3 Calls</h1>
     <pre>
         GetSmartContract("/abi/smart_contract_wallet.json", "smart_contract_wallet"); 
 
@@ -29,7 +66,8 @@
         SmartContracts["smart_contract_wallet"].call.transfers_in(1, function (err, result){console.log(result)});
 
 
-        SmartContracts["smart_contract_wallet"].call.withdrawl(web3.toWei("0.5", "ether"), '0x731b3cc8199c7aa59f99fe6bb46e7b006b494168',function (err, result){console.log(result)});
+        SmartContracts["smart_contract_wallet"].call.withdrawl(web3.toWei("0.5", "ether"), 
+        '0x731b3cc8199c7aa59f99fe6bb46e7b006b494168',function (err, result){console.log(result)});
 
 
         SmartContracts["smart_contract_wallet"].call.transfers_out(1,function (err, result){console.log(result)});
