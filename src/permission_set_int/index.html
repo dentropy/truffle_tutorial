@@ -11,19 +11,19 @@
     <h1>permission_set_int</h1>
     <p id="ContractOwner">################### is the owner of this smart contract</p>
     <h1 id="NumberFromBlockchain">The number of blockchain is ###</h1>
-    <div class="input-group input-group-lg" style="width:40%;">
+    <div class="input-group input-group-lg" style="width:80%;">
         <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroup-sizing-lg">Input Number</span>
         </div>
         <input id="NewNumberForBlockchain" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
         <button class="btn btn-outline-secondary" type="button" onclick="UpdateBlockchianWithUpdatedNumber()">Update</button>
     </div>
-    <div class="input-group input-group-lg" style="width:40%;">
+    <div class="input-group input-group-lg" style="width:80%;">
         <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroup-sizing-lg">Input Address</span>
         </div>
-        <input id="null" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-        <button class="btn btn-outline-secondary" type="button" onclick="console.log('test')">Update</button>
+        <input id="NewOwnerOfContract" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+        <button class="btn btn-outline-secondary" type="button" onclick="ChangeContractOwner()">Update</button>
     </div>
 
     <script>
@@ -49,11 +49,21 @@
         function UpdateBlockchianWithUpdatedNumber() {
             var tmpNum = parseInt($('#NewNumberForBlockchain').val());
             console.log("tmpNum = " + tmpNum);
-            SmartContracts["permission_set_int"].call.set_int_data(tmpNum, function () {
-                console.log("IT SHOULD WORK")
+            SmartContracts["permission_set_int"].call.set_int_data(tmpNum, function (err, result) {
+                console.log("IT SHOULD WORK");
+                console.log(result);
             });
-            CheckBlockchainForUpdatedNumber();
             $('#NewNumberForBlockchain').val(0);
+        }
+
+        function ChangeContractOwner() {
+            var new_owner = $('#NewOwnerOfContract').val();
+            console.log("Setting new account = " + new_owner);
+            SmartContracts["permission_set_int"].call.change_owner(new_owner, function (err, result) {
+                console.log("IT SHOULD WORK");
+                console.log(result);
+            });
+            $('#NewOwnerOfContract').val(0);
         }
 
         window.setInterval(function () {

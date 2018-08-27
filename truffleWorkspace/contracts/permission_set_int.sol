@@ -9,18 +9,24 @@ contract permission_set_int {
         }
         public_int = 420;
     }
-    function set_int_data(int256 tmpInt) public view returns(bool) {
+    function can_set_int_data(int256 tmpInt) public view returns(bool) {
+        //views can not change the state
         if(msg.sender == owner){
             public_int = tmpInt;
             return true;
         }
         return false;
     }
-    function change_owner(address _new_owner) public view returns(bool) {
+    function set_int_data(int256 tmpInt) public returns(bool) {
         if(msg.sender == owner){
-            owner = _new_owner;
+            public_int = tmpInt;
             return true;
         }
         return false;
+    }
+    function change_owner(address _new_owner) public {
+        if(msg.sender == owner){
+            owner = _new_owner;
+        }
     }    
 }
