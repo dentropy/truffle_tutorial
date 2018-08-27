@@ -6,43 +6,69 @@
     <script src="/src/javascript/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/src/css/bootstrap.min.css">
 </head>
+
 <body>
     <h1>Check Address Balance</h1>
     <div class="input-group input-group-lg" style="width:40%;">
         <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-lg">Input Number</span>
+            <span class="input-group-text" id="inputGroup-sizing-lg">Check Address: </span>
         </div>
-        <input id="NewNumberForBlockchain" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-        <button class="btn btn-outline-secondary" type="button" onclick="UpdateBlockchianWithUpdatedNumber()">Update</button>
+        <input id="CheckAddress" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+        <button class="btn btn-outline-secondary" type="button" onclick="CheckAddress()">CHECK</button>
     </div>
     <hr>
+
+
     <h1>Send funds to smart contract</h1>
     <div class="input-group input-group-lg" style="width:40%;">
         <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-lg">Input Number</span>
+            <span class="input-group-text" id="inputGroup-sizing-lg">Amount in ETH: </span>
         </div>
-        <input id="NewNumberForBlockchain" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-        <button class="btn btn-outline-secondary" type="button" onclick="UpdateBlockchianWithUpdatedNumber()">Update</button>
+        <input id="SendFundsAmount" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+        <button class="btn btn-outline-secondary" type="button" onclick="SendFundsToContract()">SEND</button>
     </div>
     <hr>
+
+
+    <h1>Withdrawl</h1>
+    <div class="input-group input-group-lg" style="width:40%;">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-lg">Withdrawl Amount: </span>
+        </div>
+        <input id="WithdrawlAmount" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+    </div>
+    <div class="input-group input-group-lg" style="width:40%;">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-lg">Address To: </span>
+        </div>
+        <input id="WithdrawlTo" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+    </div>
+    <button class="btn btn-outline-secondary" type="button" onclick="Withdrawl()">SEND</button>
+    <hr>
+
+
     <h1>Check Incoming Transactions</h1>
     <div class="input-group input-group-lg" style="width:40%;">
         <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-lg">Input Number</span>
+            <span class="input-group-text" id="inputGroup-sizing-lg">Transaction Number: </span>
         </div>
-        <input id="NewNumberForBlockchain" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-        <button class="btn btn-outline-secondary" type="button" onclick="UpdateBlockchianWithUpdatedNumber()">Update</button>
+        <input id="CheckIncomingTransactions" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+        <button class="btn btn-outline-secondary" type="button" onclick="CheckIncomingTransactions()">CHECK</button>
     </div>
     <hr>
+
+
     <h1>Check Outgoing Transactions</h1>
     <div class="input-group input-group-lg" style="width:40%;">
         <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-lg">Input Number</span>
+            <span class="input-group-text" id="inputGroup-sizing-lg">Transaction Number: </span>
         </div>
-        <input id="NewNumberForBlockchain" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-        <button class="btn btn-outline-secondary" type="button" onclick="UpdateBlockchianWithUpdatedNumber()">Update</button>
+        <input id="CheckOutgoingTransactions" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+        <button class="btn btn-outline-secondary" type="button" onclick="CheckOutgoingTransactions()">CHECK</button>
     </div>
     <hr>
+
+
     <h1>Web3 Calls</h1>
     <pre>
         GetSmartContract("/abi/smart_contract_wallet.json", "smart_contract_wallet"); 
@@ -72,6 +98,31 @@
 
         SmartContracts["smart_contract_wallet"].call.transfers_out(1,function (err, result){console.log(result)});
     </pre>
+    <script>
+        function CheckAddress() {
+            //id CheckAddress
+
+        };
+
+        function SendFundsToContract() {
+            //id SendFundsAmount
+        };
+
+        function Withdrawl() {
+            //id WithdrawlTo
+            //id WithdrawlAmount
+
+        };
+
+        function CheckIncomingTransactions() {
+            //id CheckIncomingTransactions
+
+        };
+
+        function CheckOutgoingTransactions() {
+            //id CheckOutgoingTransactions
+        };
+    </script>
 </body>
 
 </html>
