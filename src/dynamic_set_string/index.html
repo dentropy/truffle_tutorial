@@ -8,9 +8,8 @@
 </head>
 
 <body>
-    <h1>Hello World!!!</h1>
-    <p>Maybe that writing was too big. No matter, view source on this file to see some of the commands you can run in the
-        Browser Console to interact with the Truffle Tutorial Smart contract(s)</p>
+    <h1>Everyone can put a message on the blockchain</h1>
+    <h1 id="BlockchainString">The Blockchain Says : ##########</h1>
     <div class="input-group input-group-lg">
         <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroup-sizing-lg">Input String</span>
@@ -22,32 +21,38 @@
         <div class="input-group-prepend">
             <span class="input-group-text">Address and String</span>
         </div>
-        <input type="text" aria-label="First name" class="form-control">
-        <input type="text" aria-label="Last name" class="form-control">
-        <button class="btn btn-outline-secondary" type="button" onclick="UpdateBlockchianWithUpdatedNumber()">SEND</button>
+        <input id="CheckThisAddress" type="text" class="form-control">
+        <button class="btn btn-outline-secondary" type="button" onclick="CheckAnotherAddress()">SEND</button>
     </div>
     <script>
+        var CheckEthAddres;
         window.onload = function () {
-            GetSmartContract("/abi/dynamic_set_string.json", "dynamic_set_string");
-            CheckBlockchainForUpdatedString()
+            CheckEthAddress = web3.eth.coinbase;
+            GetSmartContract("/abi/dynamic_set_string.json", "dynamic_set_string")
+            CheckBlockchainForUpdatedString();
         }
 
         function CheckBlockchainForUpdatedString() {
-            SmartContracts["dynamic_set_string"].call.public_int(function (err, result) {
-                console.log(result.c[0]);
-                document.getElementById("NumberFromBlockchain").innerHTML = ("The number of blockchain is " +
-                    result.c[0]);
+            SmartContracts["dynamic_set_string"].call.string_data(CheckEthAddress, function (err, result) {
+                console.log(result);
+                document.getElementById("BlockchainString").innerHTML = (CheckEthAddress + " Says : " +
+                    result);
             });
         }
 
         function UpdateBlockchianWithUpdatedNumber() {
-            var tmpNum = parseInt($('#NewNumberForBlockchain').val());
+            var tmpNum = $('#NewStringForBlockchain').val();
             console.log("tmpNum = " + tmpNum);
-            SmartContracts["dynamic_set_string"].call.set_int_data(tmpNum, function () {
+            SmartContracts["dynamic_set_string"].call.set_string_data(tmpNum, function () {
                 console.log("IT SHOULD WORK")
             });
             CheckBlockchainForUpdatedString();
-            $('#NewNumberForBlockchain').val(0);
+            $('#NewStringForBlockchain').val(0);
+        }
+
+        function CheckAnotherAddress() {
+            CheckEthAddress = $('#CheckThisAddress').val();
+            ('#CheckThisAddress').val('');
         }
 
         window.setInterval(function () {
