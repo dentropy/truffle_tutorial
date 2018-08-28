@@ -16,6 +16,7 @@
         <input id="CheckAddress" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
         <button class="btn btn-outline-secondary" type="button" onclick="CheckAddress()">CHECK</button>
     </div>
+    <p id="UpdateAddress">Result goes here</p>
     <hr>
 
 
@@ -27,6 +28,7 @@
         <input id="SendFundsAmount" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
         <button class="btn btn-outline-secondary" type="button" onclick="SendFundsToContract()">SEND</button>
     </div>
+    <p id="UpdateSendFundsAmount">Result goes here</p>
     <hr>
 
 
@@ -44,6 +46,7 @@
         <input id="WithdrawlTo" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
     </div>
     <button class="btn btn-outline-secondary" type="button" onclick="Withdrawl()">SEND</button>
+    <p id="UpdateWithdrawl">Result goes here</p>
     <hr>
 
 
@@ -55,6 +58,7 @@
         <input id="CheckIncomingTransactions" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
         <button class="btn btn-outline-secondary" type="button" onclick="CheckIncomingTransactions()">CHECK</button>
     </div>
+    <div id="UpdateIncomingTransactions">Result goes here</div>
     <hr>
 
 
@@ -66,6 +70,7 @@
         <input id="CheckOutgoingTransactions" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
         <button class="btn btn-outline-secondary" type="button" onclick="CheckOutgoingTransactions()">CHECK</button>
     </div>
+    <div id="UpdateOutgoingTransactions"></div>
     <hr>
 
 
@@ -99,28 +104,74 @@
         SmartContracts["smart_contract_wallet"].call.transfers_out(1,function (err, result){console.log(result)});
     </pre>
     <script>
+        window.onload = function () {
+            GetSmartContract("/abi/smart_contract_wallet.json", "smart_contract_wallet");
+        }
+
         function CheckAddress() {
             //id CheckAddress
-
+            var tmpAddress = $("#CheckAddress").val();
+            console.log(tmpAddress);
+            console.log(typeof (tmpAddress))
+            SmartContracts["smart_contract_wallet"].call.balances(tmpAddress,
+                function (err, result) {
+                    console.log(result);
+                    $("#UpdateAddress").html("address " + tmpAddress + " put " + result.c + " wei into the smart contract");
+                });
         };
 
         function SendFundsToContract() {
             //id SendFundsAmount
+            var tmpAmount = $("#SendFundsAmount").val();
+            console.log(tmpAmount);
+            var TransferDetails = { to: SmartContracts["smart_contract_wallet"].address, from: web3.eth.coinbase, value: web3.toWei(tmpAmount, "ether") };
+            console.log(TransferDetails);
+            SmartContracts["smart_contract_wallet"].call.update_balance(TransferDetails,
+                function (err, result) {
+                    console.log(result);
+                    $("#UpdateSendFundsAmount").html("address " + web3.eth.coinbase + " put " + tmpAmount + " eth into the smart contract");
+                });
+
         };
 
         function Withdrawl() {
-            //id WithdrawlTo
             //id WithdrawlAmount
-
+            var tmpAmount = $("#WithdrawlAmount").val();
+            console.log(tmpAmount);
+            //id WithdrawlTo
+            var tmpAddress = $("#WithdrawlTo").val();
+            console.log(tmpAddress);
+            SmartContracts["smart_contract_wallet"].call.withdrawl(web3.toWei(tmpAmount, "ether"), tmpAddress,
+                function (err, result) {
+                    console.log(result);
+                    $("#UpdateWithdrawl").html("Transaction hash is is " + result);
+                });
         };
 
         function CheckIncomingTransactions() {
             //id CheckIncomingTransactions
-
+            var tmpVal = $("#CheckIncomingTransactions").val();
+            console.log(tmpVal);
+            SmartContracts["smart_contract_wallet"].call.transfers_in(tmpVal,
+                function (err, result) {
+                    console.log(result);
+                    $("#UpdateIncomingTransactions").empty();
+                    $("#UpdateIncomingTransactions").append("<p> From : " + result[0] + "</p>");
+                    $("#UpdateIncomingTransactions").append("<p> Amount :" + web3.fromWei(result[1], 'ether') + " ether </p>");
+                });
         };
 
         function CheckOutgoingTransactions() {
             //id CheckOutgoingTransactions
+            var tmpVal = $("#CheckOutgoingTransactions").val();
+            console.log(tmpVal);
+            SmartContracts["smart_contract_wallet"].call.transfers_out(tmpVal,
+                function (err, result) {
+                    console.log(result);
+                    $("#UpdateOutgoingTransactions").empty();
+                    $("#UpdateOutgoingTransactions").append("<p>" + result[0] + "</p>");
+                    $("#UpdateOutgoingTransactions").append("<p> Amount :" + web3.fromWei(result[1], 'ether') + " ether </p>");
+                });
         };
     </script>
 </body>
