@@ -1,4 +1,3 @@
-var SmartContract = { name: "", abi: "", address: "", call: "" }
 var SmartContracts = {};
 
 var help = " --##--> Use the View Page Source to see the command options for interacting with the smart contract ";
