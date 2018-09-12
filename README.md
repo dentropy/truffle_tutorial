@@ -1,45 +1,6 @@
 # truffle_tutorial
 A tutorial for setting up a development environment and using truffle the smart contract framework
 
-<span style="font-size:larger;"><b>First we need to install nodejs and some node packages</b></span><br><br><br>
-
-<span style="font-size:larger;">On an <b>Apple Mac</b> - follow these instructions</span>
-* Open terminal
-```bash
-#First install the node version manager nvm
-brew install nodejs
-
-#The following commands may need "sudo" in front
-sudo npm install -g truffle
-sudo npm install -g ganache-cli
-```
-<br>
-<span style="font-size:larger;">Using <b>Windows 10</b> - follow these instructions</span><br>
-* [Download and Install the latest verion of nodejs](https://nodejs.org/en/download/)
-* Open power shell as administrator
-
-```bash
-npm install -g truffle
-npm install -g ganache-cli
-```
-<br>
-
-<span style="font-size:larger;">On a <b>Linux Distro</b> - follow these instructions</span><br>
-* [Use your favorite package manager](https://nodejs.org/en/download/package-manager/)
-
-```bash
-#This is Ubuntu for example
-curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-sudo apt-get install -y nodejs
-
-#Install the npm modules
-sudo npm install -g truffle
-sudo npm install -g ganache-cli
-sudo npm install -g express
-```
-
-<p>Once you have these installed, you should be able to then setup / run a Ganache server and deploy some smart contacts to it. </p>
-
 <span style="font-size:larger;"><b>Steps to deploy smart contracts</b></span><br>
 * <b>REMINDER</b> You must have already installed the dependicies to deploy to ganache (A test blockchain) server
 	1. Open your terminal and run this command. It should result in creating a series of wallet addresses and launch the server listener.
