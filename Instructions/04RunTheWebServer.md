@@ -7,3 +7,4 @@
     npm install
     node server.js
     ```
+4. Open your browser and navigate to [http://127.0.0.1:3042](http://127.0.0.1:3042)

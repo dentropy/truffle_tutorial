@@ -10,4 +10,4 @@
 
 # Notes
 
-* Whenever you change any of your smart contracts and want to use themsmart contracts want to follow the instructions above
+* Whenever you change any of your smart contracts you need to run through the instructions above again

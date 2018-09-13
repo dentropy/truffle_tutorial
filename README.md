@@ -18,8 +18,6 @@ A tutorial for setting up a development environment and using truffle the smart 
     5. Now deploy  the example smart contracts
     	1. ```truffle migrate --reset``` 
 
-
-<p><b>ATTENTION</b> - the following activities will RESET your MetaMask Acount.  If you're already using MetaMask to manage your Ethereum Wallet, you're going to have to find and ensure you have your SEEDPHRASE before doing any of the following activities.  Going forward with this tutorial is at your own risk and may cause loss of any tokens already attributed to your MetaMask Account.   <b>when in doubt</b> - <u>don't proceed</u>!</p>
 	
 <p>With your Tuffle contracts successfully deployed, you are now ready to access them via a web browser.  <b>REMINDER</b>: You must have <a href="https://metamask.io/" target="_blank">MetaMask</a> installed and set to your local machine as it's network.  <b>http://127.0.0.1:8545</b>. If you don't know how to set the network to local node (<a href="https://metamask.helpscoutdocs.com/article/29-using-a-local-node" target="_blank">read this support article on MetaMask.io</a>) You'll have to add the seed phrase from the terminal where you launched <i>ganache-cli</i> and set a password for this to work.</p>
 

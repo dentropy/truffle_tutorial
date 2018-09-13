@@ -7,7 +7,8 @@
     ``` bash
     ganache-cli -p 8545
     ```
-    
+<p><b>ATTENTION</b> - the following activities will RESET your MetaMask Acount.  If you're already using MetaMask to manage your Ethereum Wallet, you're going to have to find and ensure you have your SEEDPHRASE before doing any of the following activities.  Going forward with this tutorial is at your own risk and may cause loss of any tokens already attributed to your MetaMask Account.   <b>when in doubt</b> - <u>don't proceed</u>!</p>
+  
 3. Connect metamask
 
 <p>First open metamask in new tab</p>
