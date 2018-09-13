@@ -104,7 +104,7 @@
         SmartContracts["smart_contract_wallet"].call.transfers_out(1,function (err, result){console.log(result)});
     </pre>
     <script>
-        window.onload = function () {
+        function StartApp() {
             GetSmartContract("/abi/smart_contract_wallet.json", "smart_contract_wallet");
         }
 

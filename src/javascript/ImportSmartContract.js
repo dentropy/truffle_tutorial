@@ -1,8 +1,5 @@
 var SmartContracts = {};
 
-var help = " --##--> Use the View Page Source to see the command options for interacting with the smart contract ";
-var Help = help;
-
 function GetSmartContract(_location, _name) {
     $.getJSON(_location, function (result) {
         //GenerateInvoiceABI = result;
@@ -21,3 +18,16 @@ function GetSmartContract(_location, _name) {
         SmartContracts[_name].call = web3.eth.contract(SmartContracts[_name].abi.abi).at(SmartContracts[_name].address);
     });
 }
+
+window.addEventListener('load', function () {
+    // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+    if (typeof web3 !== 'undefined') {
+
+        // Use the browser's ethereum provider
+        var provider = web3.currentProvider;
+        StartApp();
+    } else {
+        console.log('No web3? You should consider trying MetaMask!')
+    }
+
+})

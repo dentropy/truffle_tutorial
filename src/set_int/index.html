@@ -21,9 +21,9 @@
         </div>
     </div>
     <script>
-        window.onload = function () {
+        function StartApp() {
             GetSmartContract("/abi/set_int.json", "set_int");
-            CheckBlockchainForUpdatedNumber()
+            CheckBlockchainForUpdatedNumber();
         }
 
         function CheckBlockchainForUpdatedNumber() {
