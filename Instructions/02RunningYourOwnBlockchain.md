@@ -5,7 +5,7 @@
 1. Install metamask in your favorite browser, available [here](https://metamask.io/)
 2. Launch a terminal and run the following commands
     ``` bash
-    ganache-cli -p 8545
+    etherlime ganache
     ```
 <p><b>ATTENTION</b> - the following activities will RESET your MetaMask Acount.  If you're already using MetaMask to manage your Ethereum Wallet, you're going to have to find and ensure you have your SEEDPHRASE before doing any of the following activities.  Going forward with this tutorial is at your own risk and may cause loss of any tokens already attributed to your MetaMask Account.   <b>when in doubt</b> - <u>don't proceed</u>!</p>
   

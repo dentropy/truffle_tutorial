@@ -1,5 +1,7 @@
 # Fruther Reading
-* [truffle](https://truffleframework.com/)
+* [ethersjs](https://docs.ethers.io/ethers.js/html/)
+    * the web3 alternative
+* [truffle](https://etherlime.readthedocs.io/en/latest/)
     * Smart contract framework
 * [express](https://expressjs.com/)
     * minimalist web framework for Node.js
