@@ -9,10 +9,9 @@ contract permission_set_int {
         }
         public_int = 420;
     }
-    function can_set_int_data(int256 tmpInt) public view returns(bool) {
+    function can_set_int_data() public view returns(bool) {
         //views can not change the state
         if(msg.sender == owner){
-            public_int = tmpInt;
             return true;
         }
         return false;

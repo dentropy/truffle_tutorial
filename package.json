@@ -6,7 +6,8 @@
   "dependencies": {
     "etherlime": "^0.9.12",
     "express": "^4.16.4",
-    "ganache-cli": "^6.1.0"
+    "ganache-cli": "^6.1.0",
+    "openzeppelin-solidity": "^2.0.0"
   },
   "devDependencies": {},
   "scripts": {
