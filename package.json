@@ -4,7 +4,8 @@
   "description": "Deploy front end apps with that communicate with the Blockchain using Docker",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.16.3",
+    "etherlime": "^0.9.12",
+    "express": "^4.16.4",
     "ganache-cli": "^6.1.0"
   },
   "devDependencies": {},

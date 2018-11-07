@@ -28,7 +28,7 @@
         var CheckEthAddres;
         window.onload = function () {
             CheckEthAddress = web3.eth.coinbase;
-            GetSmartContract("dynamic_set_string")
+            GetSmartContract("/abi/dynamic_set_string.json", "dynamic_set_string")
             CheckBlockchainForUpdatedString();
         }
 
@@ -52,6 +52,7 @@
 
         function CheckAnotherAddress() {
             CheckEthAddress = $('#CheckThisAddress').val();
+            ('#CheckThisAddress').val('');
         }
 
         window.setInterval(function () {

@@ -10,42 +10,42 @@
 <body>
     <div align="center">
         <h1>set_int smart contract user interface</h1>
-        <h1 id="NumberFromBlockchain">The string on the blockchain is ###</h1>
-        <p>Input a string of text below and click update</p>
-        <div class="input-group input-group-lg" style="width:60%;">
+        <h1 id="NumberFromBlockchain">The number of blockchain is ###</h1>
+        <p>Input a number below and click update</p>
+        <div class="input-group input-group-lg" style="width:40%;">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-lg">Input String</span>
+                <span class="input-group-text" id="inputGroup-sizing-lg">Input Number</span>
             </div>
-            <input id="NewStringForBlockchain" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+            <input id="NewNumberForBlockchain" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
             <button class="btn btn-outline-secondary" type="button" onclick="UpdateBlockchianWithUpdatedNumber()">Update</button>
         </div>
     </div>
     <script>
         function StartApp() {
-            GetSmartContract("set_string");
-            CheckBlockchainForUpdatedNumber()
+            GetSmartContract("/abi/set_int.json", "set_int");
+            CheckBlockchainForUpdatedNumber();
         }
 
         function CheckBlockchainForUpdatedNumber() {
-            SmartContracts["set_string"].call.public_string(function (err, result) {
-                //console.log(result);
+            SmartContracts["set_int"].call.public_int(function (err, result) {
+                console.log(result.c[0]);
                 document.getElementById("NumberFromBlockchain").innerHTML = ("The number of blockchain is " +
-                    result);
+                    result.c[0]);
             });
         }
 
         function UpdateBlockchianWithUpdatedNumber() {
-            var tmpNum = $('#NewStringForBlockchain').val();
+            var tmpNum = parseInt($('#NewNumberForBlockchain').val());
             console.log("tmpNum = " + tmpNum);
-            SmartContracts["set_string"].call.set_string_data(tmpNum, function () {
+            SmartContracts["set_int"].call.set_int_data(tmpNum, function () {
                 console.log("IT SHOULD WORK")
             });
             CheckBlockchainForUpdatedNumber();
-            $('#NewStringForBlockchain').val(0);
+            $('#NewNumberForBlockchain').val(0);
         }
 
         window.setInterval(function () {
-            //console.log("LOOP");
+            console.log("LOOP");
             CheckBlockchainForUpdatedNumber();
         }, 1000);
     </script>

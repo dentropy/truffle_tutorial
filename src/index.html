@@ -7,12 +7,13 @@
 
 <body>
     <h1>Hello World!!!</h1>
-    <p>Maybe that writing was too big.  No matter, view source on this file to see some of the commands you can run in the Browser Console to interact with the Truffle Tutorial Smart contract(s)</p>
-    <a href = "/set_int">set_int</a><br>
-    <a href = "/set_string">set_string</a><br>
-    <a href = "/permission_set_int">permission_set_int</a><br>
-    <a href = "/dynamic_set_string">dynamic_set_string</a><br>
-    <a href = "/smart_contract_wallet">smart_contract_wallet</a><br>
+    <p>Maybe that writing was too big. No matter, view source on this file to see some of the commands you can run in
+        the Browser Console to interact with the Truffle Tutorial Smart contract(s)</p>
+    <a href="/set_int">set_int</a><br>
+    <a href="/set_string">set_string</a><br>
+    <a href="/permission_set_int">permission_set_int</a><br>
+    <a href="/dynamic_set_string">dynamic_set_string</a><br>
+    <a href="/smart_contract_wallet">smart_contract_wallet</a><br>
     <pre>
         /*
         GetSmartContract("/abi/set_int.json", "set_int"); 
@@ -42,5 +43,43 @@
 
     </pre>
 </body>
+
+<script>
+
+    function ObjectLength( object ) {
+        var length = 0;
+        for( var key in object ) {
+            if( object.hasOwnProperty(key) ) {
+                ++length;
+            }
+        }
+        return length;
+    }
+
+    function CreateSmartContractObject(_name, _abi, _address) {
+        SmartContracts[_name].name = _name;
+        SmartContracts[_name].address = SmartContracts[_name].abi.networks[tmp_the_correct_network].address;
+        SmartContracts[_name].call = web3.eth.contract(SmartContracts[_name].abi.abi).at(SmartContracts[_name].address);
+    }
+
+
+    const request = async (contractName) => {
+        SmartContracts[contractName] = {}
+        SmartContracts[contractName].name = contractName
+        var response = await fetch('http://localhost:3042/abi/' + contractName + '.json')
+        SmartContracts[contractName].abi = await response.json()
+        response = await fetch('http://localhost:3042/etherlime')
+        let etherlimeHistory = await response.json()
+        let latestDeployment = etherlimeHistory.data[(ObjectLength(etherlimeHistory.data)-1).toString()]
+        latestDeployment.actions.map( contract  => {
+            if(contract.nameOrLabel === contractName){
+                SmartContracts[contractName].address = contract.result
+            }
+        })
+        SmartContracts[contractName].call = web3.eth.contract(SmartContracts[contractName].abi.abi).at(SmartContracts[contractName].address);
+    }
+
+    GetSmartContract('set_int')
+</script>
 
 </html>
