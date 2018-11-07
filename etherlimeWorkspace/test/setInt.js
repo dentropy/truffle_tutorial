@@ -14,7 +14,7 @@ describe('Example', () => {
         assert.strictEqual(deployer.wallet.privateKey, accountFour.secretKey);
     });
 
-    it('should a token and check its name', async() => {
+    it('should check if the public_int variable can be updated', async() => {
         const deployedContractWrapper = await deployer.deploy(setInt, 'setInt')
         const contract = deployedContractWrapper.contract
         var setVal = 571275
